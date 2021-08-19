@@ -24,12 +24,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('/products', [ProductController::class, 'index'])->name('products');
 
-Route::get('/cart/add/{id}', [CartController::class, 'add'])->where('id', '[0-9]+')->middleware('auth:api');
+Route::get('/cart/add/{id}', [CartController::class, 'add'])->where('id', '[0-9]+');
 
-Route::get('/cart/remove/{id}', [CartController::class, 'remove'])->where('id', '[0-9]+')->middleware('auth:api');;
+Route::get('/cart/remove/{id}', [CartController::class, 'remove'])->where('id', '[0-9]+');
 
 Route::get('/cart/{id?}', [CartController::class, 'show']);
 
-Route::get('/carts', [CartController::class, 'showAll'])->middleware('auth:api');;
+Route::get('/carts', [CartController::class, 'showAll']);
 
 Route::post('/login', [LoginController::class, 'login'])->name('login');
